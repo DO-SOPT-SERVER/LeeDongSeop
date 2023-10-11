@@ -1,6 +1,8 @@
 package com.example.seminar.controller;
 
-import com.example.seminar.dto.HealthCheckResponse;
+import com.example.seminar.common.exception.SuccessType;
+import com.example.seminar.common.exception.dto.ApiResponse;
+import com.example.seminar.common.exception.dto.HealthCheckResponse;
 import com.example.seminar.sample.Person;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,5 +49,10 @@ public class HealthCheckController {
     @GetMapping("/v5")
     public ResponseEntity<HealthCheckResponse> healthCheckV5() {
         return ResponseEntity.ok(new HealthCheckResponse());
+    }
+
+    @GetMapping("/advanced")
+    public ApiResponse healthCheckAdvanced() {
+        return ApiResponse.success(SuccessType.PROCESS_SUCCESS);
     }
 }

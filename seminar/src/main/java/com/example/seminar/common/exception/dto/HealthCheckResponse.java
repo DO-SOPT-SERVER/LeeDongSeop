@@ -1,4 +1,4 @@
-package com.example.seminar.dto;
+package com.example.seminar.common.exception.dto;
 
 public class HealthCheckResponse {
 
