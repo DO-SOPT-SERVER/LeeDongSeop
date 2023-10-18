@@ -52,7 +52,7 @@ public class HealthCheckController {
     }
 
     @GetMapping("/advanced")
-    public ApiResponse healthCheckAdvanced() {
+    public ApiResponse<?> healthCheckAdvanced() {
         return ApiResponse.success(SuccessType.PROCESS_SUCCESS);
     }
 }
