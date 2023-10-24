@@ -55,7 +55,7 @@ public class MemberController {
     // 삭제
     @DeleteMapping("/{memberId}")
     public ApiResponse<?> deleteMember(@PathVariable Long memberId) {
-        memberService.deleteMember(memberId);
+        memberService.delete(memberId);
         return ApiResponse.success(DELETE_MEMBER_SUCCESS);
     }
 }

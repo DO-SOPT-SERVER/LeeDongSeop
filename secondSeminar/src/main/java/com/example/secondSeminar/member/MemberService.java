@@ -60,7 +60,7 @@ public class MemberService {
     }
 
     @Transactional
-    public void deleteMember(Long memberId) {
+    public void delete(Long memberId) {
         Member member = memberJpaRepository.findByIdOrThrow(memberId);
         memberJpaRepository.delete(member);
     }
