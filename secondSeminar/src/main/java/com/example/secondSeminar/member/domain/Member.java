@@ -1,5 +1,6 @@
 package com.example.secondSeminar.member.domain;
 
+import com.example.secondSeminar.member.dto.request.MemberCreateRequest;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -27,6 +28,15 @@ public class Member {
         this.nickname = nickname;
         this.age = age;
         this.sopt = sopt;
+    }
+
+    public static Member of(MemberCreateRequest request) {
+        return Member.builder()
+                .name(request.name())
+                .nickname(request.nickname())
+                .age(request.age())
+                .sopt(request.sopt())
+                .build();
     }
 
     public void updateSOPT(SOPT sopt) {

@@ -48,12 +48,7 @@ public class MemberService {
 
     @Transactional
     public MemberResponse create(MemberCreateRequest request) {
-        Member member =  memberJpaRepository.save(Member.builder()
-                .name(request.name())
-                .nickname(request.nickname())
-                .age(request.age())
-                .sopt(request.sopt())
-                .build());
+        Member member =  memberJpaRepository.save(Member.of(request));
         return MemberResponse.of(member);
     }
 
