@@ -6,7 +6,6 @@ import com.example.secondSeminar.member.dto.request.MemberCreateRequest;
 import com.example.secondSeminar.member.dto.request.MemberProfileUpdateRequest;
 import com.example.secondSeminar.member.dto.response.MemberGetResponse;
 import com.example.secondSeminar.member.infrastructure.MemberJpaRepository;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,22 +20,22 @@ public class MemberService {
 
     private final MemberJpaRepository memberJpaRepository;
 
-    public MemberGetResponse getMemberByIdV1(Long id) {
-        Member member = memberJpaRepository.findById(id).get();
-        return MemberGetResponse.of(member);
-    }
+//    public MemberGetResponse getMemberByIdV1(Long id) {
+//        Member member = memberJpaRepository.findById(id).get();
+//        return MemberGetResponse.of(member);
+//    }
+//
+//    public MemberGetResponse getMemberByIdV2(Long memberId) {
+//        return MemberGetResponse.of(findById(memberId));
+//    }
+//
+//    private Member findById(Long memberId) {
+//        return memberJpaRepository.findById(memberId).orElseThrow(
+//                () -> new EntityNotFoundException("해당하는 회원이 없습니다.")
+//        );
+//    }
 
-    public MemberGetResponse getMemberByIdV2(Long memberId) {
-        return MemberGetResponse.of(findById(memberId));
-    }
-
-    private Member findById(Long memberId) {
-        return memberJpaRepository.findById(memberId).orElseThrow(
-                () -> new EntityNotFoundException("해당하는 회원이 없습니다.")
-        );
-    }
-
-    public MemberGetResponse getMemberByIdV3(Long id) {
+    public MemberGetResponse getMemberById(Long id) {
         return MemberGetResponse.of(memberJpaRepository.findByIdOrThrow(id));
     }
 
@@ -48,20 +47,21 @@ public class MemberService {
     }
 
     @Transactional
-    public String create(MemberCreateRequest request) {
+    public MemberGetResponse create(MemberCreateRequest request) {
         Member member =  memberJpaRepository.save(Member.builder()
                 .name(request.name())
                 .nickname(request.nickname())
                 .age(request.age())
                 .sopt(request.sopt())
                 .build());
-        return member.getId().toString();
+        return MemberGetResponse.of(member);
     }
 
     @Transactional
-    public void updateSOPT(Long memberId, MemberProfileUpdateRequest request) {
+    public MemberGetResponse updateSOPT(Long memberId, MemberProfileUpdateRequest request) {
         Member member = memberJpaRepository.findByIdOrThrow(memberId);
         member.updateSOPT(new SOPT(request.generation(), request.part()));
+        return MemberGetResponse.of(member);
     }
 
     @Transactional

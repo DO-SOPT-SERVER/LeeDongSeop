@@ -1,4 +1,4 @@
-package com.example.secondSeminar.common.enums;
+package com.example.secondSeminar.member.domain.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
