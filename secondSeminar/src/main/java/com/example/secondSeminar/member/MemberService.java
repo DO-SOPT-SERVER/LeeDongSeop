@@ -4,7 +4,7 @@ import com.example.secondSeminar.member.domain.Member;
 import com.example.secondSeminar.member.domain.SOPT;
 import com.example.secondSeminar.member.dto.request.MemberCreateRequest;
 import com.example.secondSeminar.member.dto.request.MemberProfileUpdateRequest;
-import com.example.secondSeminar.member.dto.response.MemberGetResponse;
+import com.example.secondSeminar.member.dto.response.MemberResponse;
 import com.example.secondSeminar.member.infrastructure.MemberJpaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -35,33 +35,33 @@ public class MemberService {
 //        );
 //    }
 
-    public MemberGetResponse getMemberById(Long id) {
-        return MemberGetResponse.of(memberJpaRepository.findByIdOrThrow(id));
+    public MemberResponse getMemberById(Long id) {
+        return MemberResponse.of(memberJpaRepository.findByIdOrThrow(id));
     }
 
-    public List<MemberGetResponse> getMembers() {
+    public List<MemberResponse> getMembers() {
         return memberJpaRepository.findAll()
                 .stream()
-                .map(MemberGetResponse::of)
+                .map(MemberResponse::of)
                 .collect(Collectors.toList());
     }
 
     @Transactional
-    public MemberGetResponse create(MemberCreateRequest request) {
+    public MemberResponse create(MemberCreateRequest request) {
         Member member =  memberJpaRepository.save(Member.builder()
                 .name(request.name())
                 .nickname(request.nickname())
                 .age(request.age())
                 .sopt(request.sopt())
                 .build());
-        return MemberGetResponse.of(member);
+        return MemberResponse.of(member);
     }
 
     @Transactional
-    public MemberGetResponse updateSOPT(Long memberId, MemberProfileUpdateRequest request) {
+    public MemberResponse updateSOPT(Long memberId, MemberProfileUpdateRequest request) {
         Member member = memberJpaRepository.findByIdOrThrow(memberId);
         member.updateSOPT(new SOPT(request.generation(), request.part()));
-        return MemberGetResponse.of(member);
+        return MemberResponse.of(member);
     }
 
     @Transactional
