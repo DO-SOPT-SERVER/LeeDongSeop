@@ -12,7 +12,7 @@ import java.util.List;
 import static com.example.secondSeminar.common.exception.SuccessType.*;
 
 @RestController
-@RequestMapping("/api/member")
+@RequestMapping("/members")
 @RequiredArgsConstructor
 public class MemberController {
 
