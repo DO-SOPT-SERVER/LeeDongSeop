@@ -1,6 +1,6 @@
-package com.example.secondSeminar.domain.Member;
+package com.example.secondSeminar.member.domain;
 
-import com.example.secondSeminar.enums.Part;
+import com.example.secondSeminar.common.enums.Part;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Enumerated;
 import lombok.AccessLevel;

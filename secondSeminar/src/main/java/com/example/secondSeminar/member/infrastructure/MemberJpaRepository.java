@@ -1,6 +1,6 @@
-package com.example.secondSeminar.repository;
+package com.example.secondSeminar.member.infrastructure;
 
-import com.example.secondSeminar.domain.Member.Member;
+import com.example.secondSeminar.member.domain.Member;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,4 +1,4 @@
-package com.example.secondSeminar.domain.Member;
+package com.example.secondSeminar.member.domain;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;

@@ -1,11 +1,11 @@
-package com.example.secondSeminar.service;
+package com.example.secondSeminar.member;
 
-import com.example.secondSeminar.domain.Member.Member;
-import com.example.secondSeminar.domain.Member.SOPT;
-import com.example.secondSeminar.dto.request.MemberCreateRequest;
-import com.example.secondSeminar.dto.request.MemberProfileUpdateRequest;
-import com.example.secondSeminar.dto.response.MemberGetResponse;
-import com.example.secondSeminar.repository.MemberJpaRepository;
+import com.example.secondSeminar.member.domain.Member;
+import com.example.secondSeminar.member.domain.SOPT;
+import com.example.secondSeminar.member.dto.request.MemberCreateRequest;
+import com.example.secondSeminar.member.dto.request.MemberProfileUpdateRequest;
+import com.example.secondSeminar.member.dto.response.MemberGetResponse;
+import com.example.secondSeminar.member.infrastructure.MemberJpaRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

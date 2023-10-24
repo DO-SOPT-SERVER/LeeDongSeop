@@ -1,9 +1,9 @@
-package com.example.secondSeminar.controller;
+package com.example.secondSeminar.member;
 
-import com.example.secondSeminar.dto.request.MemberCreateRequest;
-import com.example.secondSeminar.dto.request.MemberProfileUpdateRequest;
-import com.example.secondSeminar.dto.response.MemberGetResponse;
-import com.example.secondSeminar.service.MemberService;
+import com.example.secondSeminar.member.dto.request.MemberCreateRequest;
+import com.example.secondSeminar.member.dto.request.MemberProfileUpdateRequest;
+import com.example.secondSeminar.member.dto.response.MemberGetResponse;
+import com.example.secondSeminar.member.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
