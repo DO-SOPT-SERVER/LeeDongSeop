@@ -4,11 +4,11 @@ import com.example.secondSeminar.common.exception.ErrorType;
 import lombok.Getter;
 
 @Getter
-public class CustomException extends RuntimeException {
+public class BusinessException extends RuntimeException {
 
     private final ErrorType errorType;
 
-    public CustomException(ErrorType errorType) {
+    public BusinessException(ErrorType errorType) {
         super(errorType.getMessage());
         this.errorType = errorType;
     }
