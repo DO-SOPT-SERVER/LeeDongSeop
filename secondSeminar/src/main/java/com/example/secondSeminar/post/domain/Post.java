@@ -1,5 +1,6 @@
 package com.example.secondSeminar.post.domain;
 
+import com.example.secondSeminar.category.domain.CategoryId;
 import com.example.secondSeminar.common.domain.BaseTimeEntity;
 import com.example.secondSeminar.member.domain.Member;
 import jakarta.persistence.*;
@@ -23,6 +24,10 @@ public class Post extends BaseTimeEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
+
+    // @ManyToOne 사용이 아닌 논리적으로 관계만 맺어둠.
+    @Column(name = "category_id")
+    private CategoryId categoryId;
 
     @Builder
     public Post(String title, String content, Member member) {
