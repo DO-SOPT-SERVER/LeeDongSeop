@@ -1,7 +1,7 @@
 package com.example.secondSeminar.common.exception;
 
 import com.example.secondSeminar.common.exception.dto.ApiResponse;
-import com.example.secondSeminar.common.exception.model.CustomException;
+import com.example.secondSeminar.common.exception.model.BusinessException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,12 @@ import java.io.IOException;
 @RestControllerAdvice
 @Component
 @RequiredArgsConstructor
-public class ControllerExceptionAdvice {
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Void> handleIllegalArgumentException(final IllegalArgumentException e) {
+        return ResponseEntity.badRequest().build();
+    }
 
     /**
      * 500 INTERNEL_SERVER  // TODO 서비스 단에서 예외가 꼼꼼하게 처리된 상태에서 500 에러를 가장 마지막에 던지도록 처리
@@ -35,10 +40,10 @@ public class ControllerExceptionAdvice {
     /**
      * CUSTOM_ERROR
      */
-    @ExceptionHandler(CustomException.class)
-    protected ResponseEntity<ApiResponse> handleCustomException(CustomException e) {
+    @ExceptionHandler(BusinessException.class)
+    protected ResponseEntity<ApiResponse> handleBusinessException(BusinessException e) {
 
-        log.error("CustomException occured: {}", e.getMessage(), e);
+        log.error("BusinessmException occured: {}", e.getMessage(), e);
 
         return ResponseEntity.status(e.getHttpStatus())
                 .body(ApiResponse.error(e.getErrorType(), e.getMessage()));
