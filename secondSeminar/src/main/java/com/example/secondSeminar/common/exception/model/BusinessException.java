@@ -1,6 +1,6 @@
 package com.example.secondSeminar.common.exception.model;
 
-import com.example.secondSeminar.common.exception.ErrorType;
+import com.example.secondSeminar.common.exception.enums.ErrorType;
 import lombok.Getter;
 
 @Getter

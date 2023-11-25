@@ -40,3 +40,4 @@ bin/
 application.yml
 application-local.yml
 application-dev.yml
+application-secret.properties

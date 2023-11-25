@@ -1,6 +1,7 @@
 package com.example.secondSeminar.common.exception;
 
-import com.example.secondSeminar.common.exception.dto.ApiResponse;
+import com.example.secondSeminar.common.dto.ApiResponse;
+import com.example.secondSeminar.common.exception.enums.ErrorType;
 import com.example.secondSeminar.common.exception.model.BusinessException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;

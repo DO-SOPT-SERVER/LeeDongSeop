@@ -1,4 +1,4 @@
-package com.example.secondSeminar.category.service;
+package com.example.secondSeminar.category;
 
 import com.example.secondSeminar.category.domain.Category;
 import com.example.secondSeminar.category.domain.CategoryId;
@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import static com.example.secondSeminar.common.exception.ErrorType.NOT_FOUND_CATEGORY_ERROR;
+import static com.example.secondSeminar.common.exception.enums.ErrorType.NOT_FOUND_CATEGORY_ERROR;
 
 @Service
 @RequiredArgsConstructor

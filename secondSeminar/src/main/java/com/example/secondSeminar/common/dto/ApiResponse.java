@@ -1,7 +1,7 @@
-package com.example.secondSeminar.common.exception.dto;
+package com.example.secondSeminar.common.dto;
 
-import com.example.secondSeminar.common.exception.ErrorType;
-import com.example.secondSeminar.common.exception.SuccessType;
+import com.example.secondSeminar.common.exception.enums.ErrorType;
+import com.example.secondSeminar.common.exception.enums.SuccessType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AccessLevel;

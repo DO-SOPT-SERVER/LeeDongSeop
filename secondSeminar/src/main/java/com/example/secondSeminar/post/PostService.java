@@ -1,7 +1,7 @@
 package com.example.secondSeminar.post;
 
 import com.example.secondSeminar.category.domain.Category;
-import com.example.secondSeminar.category.service.CategoryService;
+import com.example.secondSeminar.category.CategoryService;
 import com.example.secondSeminar.common.exception.model.BusinessException;
 import com.example.secondSeminar.member.domain.Member;
 import com.example.secondSeminar.member.infrastructure.MemberJpaRepository;
@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static com.example.secondSeminar.common.exception.ErrorType.NOT_FOUND_POST_ERROR;
+import static com.example.secondSeminar.common.exception.enums.ErrorType.NOT_FOUND_POST_ERROR;
 
 @Service
 @RequiredArgsConstructor

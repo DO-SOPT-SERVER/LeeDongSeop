@@ -1,18 +1,15 @@
 package com.example.secondSeminar.post;
 
-import com.example.secondSeminar.common.exception.SuccessType;
-import com.example.secondSeminar.common.exception.dto.ApiResponse;
+import com.example.secondSeminar.common.dto.ApiResponse;
 import com.example.secondSeminar.post.dto.request.PostCreateRequest;
 import com.example.secondSeminar.post.dto.request.PostUpdateRequest;
 import com.example.secondSeminar.post.dto.response.PostResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
 import java.util.List;
 
-import static com.example.secondSeminar.common.exception.SuccessType.*;
+import static com.example.secondSeminar.common.exception.enums.SuccessType.*;
 
 @RestController
 @RequiredArgsConstructor
