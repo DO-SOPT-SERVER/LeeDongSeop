@@ -5,8 +5,11 @@ import com.example.secondSeminar.post.dto.request.PostCreateRequest;
 import com.example.secondSeminar.post.dto.request.PostUpdateRequest;
 import com.example.secondSeminar.post.dto.response.PostResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+import java.security.Principal;
 import java.util.List;
 
 import static com.example.secondSeminar.common.exception.enums.SuccessType.*;
@@ -26,11 +29,26 @@ public class PostController {
 //        URI location = URI.create("/posts/" + postService.create(request, memberId));
 //        return ResponseEntity.created(location).build();
 //    }
+
+//    @PostMapping
+//    public ResponseEntity<Void> createPost(
+//            @RequestBody PostCreateRequest request,
+//            Principal principal) {
+//
+//        Long memberId = Long.valueOf(principal.getName());
+//        URI location = URI.create("/api/posts/" + postService.create(request, memberId));
+//
+//        return ResponseEntity.created(location).build();
+//    }
+
     @PostMapping
-    public ApiResponse<?> createPost(@RequestHeader(CUSTOM_AUTH_ID) Long memberId,
-                                        @RequestBody PostCreateRequest request) {
-        return ApiResponse.success(CREATE_POST_SUCCESS, postService.create(request, memberId));
+    public ApiResponse<?> createPost(
+            @RequestBody PostCreateRequest request,
+            Principal principal) {
+
+        return ApiResponse.success(CREATE_POST_SUCCESS, postService.create(request,  Long.valueOf(principal.getName())));
     }
+
 
     @GetMapping("/{postId}")
     public ApiResponse<PostResponse> getPostById(@PathVariable Long postId) {

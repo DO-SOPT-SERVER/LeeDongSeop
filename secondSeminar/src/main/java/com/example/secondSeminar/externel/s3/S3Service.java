@@ -1,4 +1,4 @@
-package com.example.secondSeminar.externel;
+package com.example.secondSeminar.externel.s3;
 
 import com.example.secondSeminar.common.config.AWSConfig;
 import org.springframework.beans.factory.annotation.Value;
