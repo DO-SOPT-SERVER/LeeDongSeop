@@ -1,6 +1,6 @@
 package com.example.secondSeminar.member;
 
-import com.example.secondSeminar.common.exception.dto.ApiResponse;
+import com.example.secondSeminar.common.dto.ApiResponse;
 import com.example.secondSeminar.member.dto.request.MemberCreateRequest;
 import com.example.secondSeminar.member.dto.request.MemberProfileUpdateRequest;
 import com.example.secondSeminar.member.dto.response.MemberResponse;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.example.secondSeminar.common.exception.SuccessType.*;
+import static com.example.secondSeminar.common.exception.enums.SuccessType.*;
 
 @RestController
 @RequestMapping("/members")

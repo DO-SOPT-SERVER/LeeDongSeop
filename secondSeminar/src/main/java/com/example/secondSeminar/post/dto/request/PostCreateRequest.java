@@ -5,3 +5,4 @@ public record PostCreateRequest(
         String content
 ) {
 }
+

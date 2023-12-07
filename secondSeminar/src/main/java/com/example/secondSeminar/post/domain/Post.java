@@ -21,13 +21,23 @@ public class Post extends BaseTimeEntity {
     private String title;
     private String content;
 
+    private String imageUrl;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
 
-    // @ManyToOne 사용이 아닌 논리적으로 관계만 맺어둠.
+    // @ManyToOne 사용이 아닌 논리적으로 관계만 맺어둠
     @Column(name = "category_id")
     private CategoryId categoryId;
+
+    @Builder(builderMethodName = "builderWithImageUrl") // 빌더 패턴 쓸 때 메서드 이름을 설정
+    public Post(String title, String content, String imageUrl, Member member) {
+        this.title = title;
+        this.content = content;
+        this.imageUrl = imageUrl;
+        this.member = member;
+    }
 
     @Builder
     public Post(String title, String content, Member member) {
@@ -38,5 +48,9 @@ public class Post extends BaseTimeEntity {
 
     public void updateContent(String content) {
         this.content = content;
+    }
+
+    public void addCategory(CategoryId categoryId) {
+        this.categoryId = categoryId;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.secondSeminar.common.exception;
+package com.example.secondSeminar.common.exception.enums;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
