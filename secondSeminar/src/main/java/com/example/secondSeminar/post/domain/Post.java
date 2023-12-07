@@ -31,18 +31,18 @@ public class Post extends BaseTimeEntity {
     @Column(name = "category_id")
     private CategoryId categoryId;
 
-    @Builder
-    public Post(String title, String content, Member member) {
-        this.title = title;
-        this.content = content;
-        this.member = member;
-    }
-
     @Builder(builderMethodName = "builderWithImageUrl") // 빌더 패턴 쓸 때 메서드 이름을 설정
     public Post(String title, String content, String imageUrl, Member member) {
         this.title = title;
         this.content = content;
         this.imageUrl = imageUrl;
+        this.member = member;
+    }
+
+    @Builder
+    public Post(String title, String content, Member member) {
+        this.title = title;
+        this.content = content;
         this.member = member;
     }
 
